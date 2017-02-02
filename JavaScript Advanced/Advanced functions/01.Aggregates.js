@@ -3,13 +3,31 @@ function reducer(arr) {
     i;
 
     function sum() {
-        let output = 0;
+        var output = 0;
         for(i = 0; i < arr.length; i += 1){
             output += arr[i];
         }
         return output;
     }
+    function min(){
+       var output1 = Number.MAX_VALUE;
+       for (i = 1; i < input.length; i += 0) {
+           if(input[i] < input[i - 1] && input[i] < output1){
+               output1 = input[i];
+           }
+           else {
+               output1 = input[0];
+           }
+       }
+       return output1;
+    }
     console.log("Sum = " + sum());
+    console.log("Min = " + min());
+    console.log("Max = " + 
+        reduce(arr, (a,b) => Math.max(a, b)));
+    console.log("Product = " + 
+        reduce(arr, (a,b) => Number(a) * Number(b)));
+    console.log("Join = " + arr.join);
 }
 
 
