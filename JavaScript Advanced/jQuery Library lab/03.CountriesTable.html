@@ -17,8 +17,9 @@
     
     <table id="countriesTable">
         <tr><th>Country</th><th>Capital</th><th>Action</th></tr>
-        <tr><td><input type="text" id="newCountryText /"></td>
-            <td><input type="text" id="newCapitalText"></td>
+        <tr>
+            <td><input type="text" id="newCountryText"/></td>
+            <td><input type="text" id="newCapitalText"/></td>
             <td><a href="#" id="createLink">[Create]</a></td>
         </tr>
     </table>
@@ -44,15 +45,15 @@
             }
             
         function addCountryToTable(country, capital) {
-            let row = $('<tr>')
+            let row = $("<tr>")
             .append($("<td>").text(country))
             .append($("<td>").text(capital))
             .append($("<td>")
-            .append($("<a href='#'>[Up]</a>").click(moveRowUp))
-            .append(" ")
-            .append($("<a href='#'>[Down]</a>").click(moveRowDown))
-            .append(" ")
-            .append($("<a href='#'>[Delete]</a>").click(deleteRow)));
+                .append($("<a href='#'>[Up]</a>").click(moveRowUp))
+                .append(" ")
+                .append($("<a href='#'>[Down]</a>").click(moveRowDown))
+                .append(" ")
+                .append($("<a href='#'>[Delete]</a>").click(deleteRow)));
 
             row.css('display','none');
 
