@@ -10,6 +10,5 @@ function townsToJSON(input) {
         town[outputTitles[2]] = Number(townData[2]);
         towns.push(town);
     }
-
     return JSON.stringify(towns);
 }
