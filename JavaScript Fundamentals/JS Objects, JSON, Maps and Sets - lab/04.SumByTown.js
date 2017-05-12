@@ -9,5 +9,5 @@ function sumByTown(data){
         }
         sums[town] += income;
     }
-    console.log(sums);
+     return JSON.stringify(sums);
 }
