@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Load GitHub repos</h1>
+    GitHub username:
+    <input type="text" id="username">
+    <button onclick="loadRepos()">Load Repos</button>
+    <ul id="repos"></ul>
+
+    <script>
+        function loadRepos(){
+            $("#repos").empty();
+            let username = $('#username').val();
+            let url = "https://api.github.com/users/"+ username + "/repos";
+
+            $.ajax({ url,
+            success: function displayRepos(data){
+                for(let singleRepo of data){
+                    let link = $("<a>");
+                    link.text(singleRepo.full_name);
+                    link.attr('href', singleRepo.html_url);
+                    let li = $("<li>").append(link);
+                    $('#repos').append(li);
+                }
+            },
+            error: function displayError(){
+                $('#repos').append($("<li>Error!</li>"));
+            }
+            })
+            
+        }
+    </script>
+</body>
+</html>
